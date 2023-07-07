@@ -1,8 +1,8 @@
-###Project title
+#Project title
 myFlix-client
 
-###Project description
+#Project description
 Using React to build client-side for an app called myFlix
 
-###Tech stack:
+#Tech stack:
 MERN
