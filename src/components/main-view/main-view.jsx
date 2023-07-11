@@ -11,23 +11,23 @@ export const MainView = () => {
         fetch("https://myflix-jwww-f51e9c501b1f.herokuapp.com/movies")
         .then((response) => response.json())
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             
-            const moviesFromApi = data.movies.map( (movie) => {
+            const moviesFromApi = data.map( (movie) => {
             return {
                 _id: movie._id,
-                title: movie.Title,
-                imagePath: movie.ImagePath,
-                genre: {
+                Title: movie.Title,
+                ImagePath: movie.ImagePath,
+                Genre: {
                     name: movie.Genre.Name,
                     description: movie.Genre.Description
                 },
-                director: {
+                Director: {
                     name: movie.Director.Name,
                     bio: movie.Director.Bio,
                     birth: movie.Director.Birth
                 },
-                featured: movie.Featured.toString()
+                Featured: movie.Featured.toString()
             };
         });
         setMovies(moviesFromApi);
