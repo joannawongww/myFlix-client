@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
@@ -11,9 +11,11 @@ export const MainView = () => {
         fetch("https://myflix-jwww-f51e9c501b1f.herokuapp.com/movies")
         .then((response) => response.json())
         .then((data) => {
+            console.log(data);
+            
             const moviesFromApi = data.map( (movie) => {
             return {
-                _id: movie.id,
+                _id: movie._id,
                 title: movie.Title,
                 imagePath: movie.ImagePath,
                 genre: {
@@ -30,7 +32,9 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
 
-    });
+    }).catch((error) => {
+        console.log('Error fetching movies:', error);
+    })
     }, [])
 
     if (selectedMovie) {
@@ -45,7 +49,7 @@ export const MainView = () => {
             <div>
                 {movies.map((movie) => (
                     <MovieCard
-                    key = {movie.id}
+                    key = {movie._id}
                     movie={movie}
                     onMovieClick = { (newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);
