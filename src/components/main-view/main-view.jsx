@@ -25,7 +25,7 @@ export const MainView = () => {
                     bio: movie.Director.Bio,
                     birth: movie.Director.Birth
                 },
-                featured: movie.Featured 
+                featured: movie.Featured.toString()
             };
         });
         setMovies(moviesFromApi);
