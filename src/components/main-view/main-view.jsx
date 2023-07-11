@@ -17,15 +17,16 @@ export const MainView = () => {
             return {
                 _id: movie._id,
                 Title: movie.Title,
+                Description: movie.Description,
                 ImagePath: movie.ImagePath,
                 Genre: {
-                    name: movie.Genre.Name,
-                    description: movie.Genre.Description
+                    Name: movie.Genre.Name,
+                    Description: movie.Genre.Description
                 },
                 Director: {
-                    name: movie.Director.Name,
-                    bio: movie.Director.Bio,
-                    birth: movie.Director.Birth
+                    Name: movie.Director.Name,
+                    Bio: movie.Director.Bio,
+                    Birth: movie.Director.Birth
                 },
                 Featured: movie.Featured.toString()
             };
