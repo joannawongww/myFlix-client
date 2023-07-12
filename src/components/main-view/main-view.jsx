@@ -1,36 +1,42 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 
 export const MainView = () => {
-    const [movies, setMovies] = useState([
-        {
-            id: 1,
-            title: "Silence of the Lamb",
-            description: "Young FBI",
-            genre: "Thriller",
-            director: "Jonathan Demme",
-            image: "silenceofthelambs.png"
-        },
-        {
-            id: 2,
-            title: "Avatar: The Way of Water",
-            description: "Blue-skinned humanoids seek refuse with aquatic clan of Pandora",
-            genre: "animated",
-            director: "James Cameron",
-            image: "avatar.png"
-        },
-        {
-            id: 3,
-            title: "Dumb and Dumber",
-            description: "Two dumb but well-meaning friends set out on cross-country trip to return briefcase full of money to its owner",
-            genre: "Comedy",
-            director: "Peter Farrelly",
-            image: "dumbanddumber.png"
-            }
-    ]);
+    const [movies, setMovies] = useState([]);
 
     const [selectedMovie, setSelectedMovie] = useState(null);
+
+    useEffect(() => {
+        fetch("https://myflix-jwww-f51e9c501b1f.herokuapp.com/movies")
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            
+            const moviesFromApi = data.map( (movie) => {
+            return {
+                _id: movie._id,
+                Title: movie.Title,
+                Description: movie.Description,
+                ImagePath: movie.ImagePath,
+                Genre: {
+                    Name: movie.Genre.Name,
+                    Description: movie.Genre.Description
+                },
+                Director: {
+                    Name: movie.Director.Name,
+                    Bio: movie.Director.Bio,
+                    Birth: movie.Director.Birth
+                },
+                Featured: movie.Featured.toString()
+            };
+        });
+        setMovies(moviesFromApi);
+
+    }).catch((error) => {
+        console.log('Error fetching movies:', error);
+    })
+    }, [])
 
     if (selectedMovie) {
         return <MovieView movie={selectedMovie}
@@ -44,7 +50,7 @@ export const MainView = () => {
             <div>
                 {movies.map((movie) => (
                     <MovieCard
-                    key = {movie.id}
+                    key = {movie._id}
                     movie={movie}
                     onMovieClick = { (newSelectedMovie) => {
                         setSelectedMovie(newSelectedMovie);
