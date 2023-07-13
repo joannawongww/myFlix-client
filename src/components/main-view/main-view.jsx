@@ -44,8 +44,6 @@ export const MainView = () => {
         });
         setMovies(moviesFromApi);
 
-    }).catch((error) => {
-        console.log('Error fetching movies:', error);
     })
     }, [token])
 
@@ -63,13 +61,16 @@ export const MainView = () => {
     )
     }
 
-
     if (selectedMovie) {
         return ( 
         <>
            <button onClick = { ()=> {
             setUser(null);
+            setToken(null);
+            localStorage.clear();
            }}> Logout </button>
+
+           
         <MovieView movie={selectedMovie}
         onBackClick = {() => setSelectedMovie(null)} />;
         </>
