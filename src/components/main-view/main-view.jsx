@@ -70,7 +70,7 @@ export const MainView = () => {
             localStorage.clear();
            }}> Logout </button>
 
-           
+
         <MovieView movie={selectedMovie}
         onBackClick = {() => setSelectedMovie(null)} />;
         </>
@@ -87,7 +87,7 @@ export const MainView = () => {
                     key = {movie._id}
                     movie={movie}
                     onMovieClick = { (newSelectedMovie) => {
-                        setSelectedMovie(newSelectedMovie);
+                        setSelectedMovie(newSelectedMovie)
                     }}
                     />
                 ))}
