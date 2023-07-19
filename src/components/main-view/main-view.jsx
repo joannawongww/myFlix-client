@@ -50,7 +50,7 @@ export const MainView = () => {
         <Container>
           <Navbar.Text className="text-nav">Movie</Navbar.Text>
           <Button
-            variant="danger"
+            variant="dark"
             size="sm"
             onClick={() => {
               setUser(null);
@@ -81,15 +81,6 @@ export const MainView = () => {
               movie={selectedMovie}
               onBackClick={() => setSelectedMovie(null)}
             />
-            <button
-              onClick={() => {
-                setUser(null);
-                setToken(null);
-                localStorage.clear();
-              }}
-            >
-              Logout
-            </button>
           </Col>
         ) : movies.length === 0 ? (
           <div>List is empty</div>

@@ -7,6 +7,7 @@ export const MovieCard = ({ movie, onMovieClick }) => {
       <Card.Img variant="top" src={movie.ImagePath} alt={movie.Title} />
       <Card.Body>
         <Card.Title> {movie.Title} </Card.Title>
+        <Card.Text> {movie.Description} </Card.Text>
         <Card.Text> {movie.Director} </Card.Text>
         <Button
           onClick={() => {
