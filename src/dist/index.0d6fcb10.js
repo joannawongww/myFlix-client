@@ -27454,11 +27454,7 @@ $RefreshReg$(_c, "MovieCard");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-<<<<<<< Updated upstream
 },{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa","react-bootstrap":"3AD9A"}],"7wKI2":[function(require,module,exports) {
-=======
-},{"react/jsx-dev-runtime":"iTorj","prop-types":"7wKI2","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa"}],"7wKI2":[function(require,module,exports) {
->>>>>>> Stashed changes
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -28373,7 +28369,6 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-<<<<<<< Updated upstream
 },{"3eeb4fd7e05fb114":"2EBZB"}],"3AD9A":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -41000,9 +40995,6 @@ exports.default = Object.assign(ToggleButtonGroup, {
 });
 
 },{"react":"21dqq","invariant":"d1QgR","uncontrollable":"b3yWY","./createChainedFunction":"1KNLM","./ElementChildren":"fdyAp","./ButtonGroup":"gXYCe","./ToggleButton":"dCmeV","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK"}],"ggaUx":[function(require,module,exports) {
-=======
-},{"3eeb4fd7e05fb114":"2EBZB"}],"ggaUx":[function(require,module,exports) {
->>>>>>> Stashed changes
 var $parcel$ReactRefreshHelpers$e9f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41324,7 +41316,7 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80"}],"4OGiN":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Button":"aPzUt","react-bootstrap/Form":"iBZ80","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa"}],"4OGiN":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$73d1 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -41503,6 +41495,6 @@ $RefreshReg$(_c, "SignupView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt"}],"lJZlQ":[function() {},{}]},["brtOD","fDKhm","d8Dch"], "d8Dch", "parcelRequireaec4")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap/Form":"iBZ80","react-bootstrap/Button":"aPzUt","@parcel/transformer-js/src/esmodule-helpers.js":"kd4pK","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"lBypa"}],"lJZlQ":[function() {},{}]},["brtOD","fDKhm","d8Dch"], "d8Dch", "parcelRequireaec4")
 
 //# sourceMappingURL=index.0d6fcb10.js.map
