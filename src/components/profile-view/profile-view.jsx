@@ -45,7 +45,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
     )
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json(), alert("Update successfully");
         } else {
           alert("Update failed");
         }
