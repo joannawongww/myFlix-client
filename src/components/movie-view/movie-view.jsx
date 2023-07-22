@@ -1,24 +1,25 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./movie-view.scss";
 import Button from "react-bootstrap/Button";
-import { useEffect, useState } from "react";
+import { ProfileView } from "../profile-view/profile-view";
 
-export const MovieView = ({ movies, user, setUser, token }) => {
+export const MovieView = ({ user, token, movies, setUser }) => {
   const { movieId } = useParams();
   const [Favorite, setFavorite] = useState(false);
 
   useEffect(() => {
-    const isFavorited = user.FavoriteMovies.includes(movieId);
+    const isFavorited = user.Favorite.includes(movieId);
     setFavorite(isFavorited);
   }, []);
 
   const addFavorite = () => {
     fetch(
-      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`,
+      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`,
       {
-        method: "PUT",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -39,7 +40,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`,
+      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`,
       {
         method: "DELETE",
         headers: {

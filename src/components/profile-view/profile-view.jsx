@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import Modal from "react-bootstrap/Modal";
 import { MovieCard } from "../movie-card/movie-card";
 import { ModalHeader } from "react-bootstrap";
+import { MovieView } from "../movie-view/movie-view";
 
 export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
   const [username, setUsername] = useState(user.Username);
@@ -13,8 +14,9 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
   const [email, setEmail] = useState(user.Email);
   const [birthday, setBirthday] = useState(user.Birthday);
   const [showModal, setShowModal] = useState(false);
+
   const favoriteMovies = movies.filter((movie) => {
-    return user.Favorite.includes(movie._id);
+    return user.Favorite.includes(movie.id);
   });
 
   const handleShowModal = () => setShowModal(true);
@@ -53,8 +55,6 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
         setUser(data);
       });
   };
-
-  console.log(favoriteMovies);
 
   const handleDeleteUser = () => {
     fetch(
@@ -139,7 +139,7 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
       <Row>
         <h3>Favorite movies</h3>
         {favoriteMovies.map((movie) => (
-          <Col key={movie._id} md={4}>
+          <Col key={movie.id} md={4}>
             <MovieCard movie={movie}></MovieCard>
           </Col>
         ))}
