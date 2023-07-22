@@ -39,7 +39,7 @@ export const MainView = () => {
 
         const moviesFromApi = data.map((movie) => {
           return {
-            _id: movie._id,
+            id: movie._id,
             Title: movie.Title,
             Description: movie.Description,
             ImagePath: movie.ImagePath,
@@ -132,7 +132,7 @@ export const MainView = () => {
                       movies={movies}
                       user={user}
                       setUser={setUser}
-                      token={setToken}
+                      token={token}
                     />
                   </Col>
                 )}

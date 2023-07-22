@@ -27218,7 +27218,7 @@ const MainView = ()=>{
             console.log(data);
             const moviesFromApi = data.map((movie)=>{
                 return {
-                    _id: movie._id,
+                    id: movie._id,
                     Title: movie.Title,
                     Description: movie.Description,
                     ImagePath: movie.ImagePath,
@@ -27318,7 +27318,7 @@ const MainView = ()=>{
                                         movies: movies,
                                         user: user,
                                         setUser: setUser,
-                                        token: setToken
+                                        token: token
                                     }, void 0, false, void 0, void 0)
                                 }, void 0, false, void 0, void 0)
                             }, void 0, false)
@@ -46886,8 +46886,8 @@ const MovieView = ({ movies, user, setUser, token })=>{
         const isFavorited = user.FavoriteMovies.includes(movieId);
         setFavorite(isFavorited);
     }, []);
-    const addToFavorite = ()=>{
-        fetch(`https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.Id}`, {
+    const addFavorite = ()=>{
+        fetch(`https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -46902,7 +46902,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
         });
     };
     const removeFavorite = ()=>{
-        fetch(`https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
+        fetch(`https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
@@ -46911,12 +46911,12 @@ const MovieView = ({ movies, user, setUser, token })=>{
         }).then((response)=>{
             if (response.ok) return response.json();
         }).then((data)=>{
-            setIsFavorite(false);
+            setFavorite(false);
             localStorage.setItem("user", JSON.stringify(data));
             setUser(data);
         });
     };
-    const movie = movies.find((movie)=>movie.id === movie._id);
+    const movie = movies.find((movie)=>movie.id === movieId);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -47077,7 +47077,7 @@ const MovieView = ({ movies, user, setUser, token })=>{
                 lineNumber: 99,
                 columnNumber: 9
             }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _buttonDefault.default), {
-                onClick: addToFavorite,
+                onClick: addFavorite,
                 children: "Add to my favorite movies"
             }, void 0, false, {
                 fileName: "src/components/movie-view/movie-view.jsx",

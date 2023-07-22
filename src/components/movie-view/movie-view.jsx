@@ -14,9 +14,9 @@ export const MovieView = ({ movies, user, setUser, token }) => {
     setFavorite(isFavorited);
   }, []);
 
-  const addToFavorite = () => {
+  const addFavorite = () => {
     fetch(
-      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.Id}`,
+      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`,
       {
         method: "PUT",
         headers: {
@@ -39,7 +39,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
 
   const removeFavorite = () => {
     fetch(
-      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`,
+      `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movie.id}`,
       {
         method: "DELETE",
         headers: {
@@ -54,13 +54,13 @@ export const MovieView = ({ movies, user, setUser, token }) => {
         }
       })
       .then((data) => {
-        setIsFavorite(false);
+        setFavorite(false);
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
       });
   };
 
-  const movie = movies.find((movie) => movie.id === movie._id);
+  const movie = movies.find((movie) => movie.id === movieId);
 
   return (
     <div>
@@ -98,7 +98,7 @@ export const MovieView = ({ movies, user, setUser, token }) => {
       {Favorite ? (
         <Button onClick={removeFavorite}>Remove from favourite movies</Button>
       ) : (
-        <Button onClick={addToFavorite}>Add to my favorite movies</Button>
+        <Button onClick={addFavorite}>Add to my favorite movies</Button>
       )}
 
       <Link to={`/`}>
