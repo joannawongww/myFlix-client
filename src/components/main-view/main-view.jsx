@@ -128,7 +128,12 @@ export const MainView = () => {
                   <Col>List is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView movies={movies} />
+                    <MovieView
+                      movies={movies}
+                      user={user}
+                      setUser={setUser}
+                      token={setToken}
+                    />
                   </Col>
                 )}
               </>
