@@ -13,11 +13,11 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 export const MainView = () => {
+  const storedUser = localStorage.getItem("user");
+  const storedToken = localStorage.getItem("token");
   const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
-  const storedUser = localStorage.getItem("user");
-  const storedToken = localStorage.getItem("token");
 
   const onLogout = () => {
     setUser(null);

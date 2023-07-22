@@ -19,7 +19,7 @@ export const MovieView = ({ user, token, movies, setUser }) => {
     fetch(
       `https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,

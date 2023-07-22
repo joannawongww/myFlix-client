@@ -27198,11 +27198,11 @@ var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 const MainView = ()=>{
     _s();
+    const storedUser = localStorage.getItem("user");
+    const storedToken = localStorage.getItem("token");
     const [movies, setMovies] = (0, _react.useState)([]);
     const [user, setUser] = (0, _react.useState)(null);
     const [token, setToken] = (0, _react.useState)(null);
-    const storedUser = localStorage.getItem("user");
-    const storedToken = localStorage.getItem("token");
     const onLogout = ()=>{
         setUser(null);
         setToken(null);
@@ -46889,7 +46889,7 @@ const MovieView = ({ user, token, movies, setUser })=>{
     }, []);
     const addFavorite = ()=>{
         fetch(`https://myflix-jwww-f51e9c501b1f.herokuapp.com/users/${user.Username}/movies/${movieId}`, {
-            method: "POST",
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`
