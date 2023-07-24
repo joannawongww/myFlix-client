@@ -38,7 +38,7 @@ export const MovieView = ({ user, token, movies, setUser }) => {
         setFavorite(true);
         user.Favorite.push(movieId);
         localStorage.setItem("user", JSON.stringify(data));
-        setUser(data);
+        setUser(user);
       });
   };
 
@@ -62,7 +62,7 @@ export const MovieView = ({ user, token, movies, setUser }) => {
         setFavorite(false);
         user.Favorite = user.Favorite.filter((id) => id !== movieId);
         localStorage.setItem("user", JSON.stringify(data));
-        setUser(data);
+        setUser(user);
       });
   };
 
