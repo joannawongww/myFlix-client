@@ -9,6 +9,7 @@ import { ProfileView } from "../profile-view/profile-view";
 export const MovieView = ({ user, token, movies, setUser }) => {
   const { movieId } = useParams();
   const [Favorite, setFavorite] = useState(false);
+  const movies = useSelector((state) => state.movies);
 
   useEffect(() => {
     if (user?.Favorite?.length && movieId) {

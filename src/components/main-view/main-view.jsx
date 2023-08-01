@@ -11,13 +11,18 @@ import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setMovies } from "../../redux/reducers/movies";
 
 export const MainView = () => {
   const storedUser = localStorage.getItem("user");
   const storedToken = localStorage.getItem("token");
-  const [movies, setMovies] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(null);
+  const movies = useSelector((state) => {
+    return state.movies.list;
+  });
+  const dispatch = useDispatch();
 
   const onLogout = () => {
     setUser(null);
@@ -48,7 +53,7 @@ export const MainView = () => {
             Featured: movie.Featured.toString(),
           };
         });
-        setMovies(moviesFromApi);
+        dispatch(setMovies(moviesFromApi));
       });
   }, [token]);
 
@@ -128,12 +133,7 @@ export const MainView = () => {
                   <Col>List is empty!</Col>
                 ) : (
                   <Col md={8}>
-                    <MovieView
-                      movies={movies}
-                      user={user}
-                      setUser={setUser}
-                      token={token}
-                    />
+                    <MovieView user={user} setUser={setUser} token={token} />
                   </Col>
                 )}
               </>
