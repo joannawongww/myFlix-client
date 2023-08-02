@@ -145,7 +145,11 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
         ))}
       </Row>
 
-      <Button variant="primary" onClick={handleShowModal}>
+      <Button
+        variant="primary"
+        className="button-primary"
+        onClick={handleShowModal}
+      >
         Delete account
       </Button>
       <Modal show={showModal} onHide={handleCloseModal}>
@@ -154,10 +158,18 @@ export const ProfileView = ({ user, token, setUser, movies, onLogout }) => {
         </Modal.Header>
         <Modal.Body>Confirm delete account?</Modal.Body>
         <Modal.Footer>
-          <button variant="primary" onClick={handleDeleteUser}>
+          <button
+            variant="primary"
+            className="button-primary"
+            onClick={handleDeleteUser}
+          >
             Yes
           </button>
-          <button variant="secondary" onClick={handleCloseModal}>
+          <button
+            variant="secondary"
+            className="button-primary"
+            onClick={handleCloseModal}
+          >
             No
           </button>
         </Modal.Footer>

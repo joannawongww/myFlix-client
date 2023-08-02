@@ -1,7 +1,36 @@
-$color: steelblue;
+$primary: #d5a6bd;
+$secondary: #444444;
 
-.my-flix {
-  color: $color;
+body {
+  background-color: $primary;
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.card {
+  color: $primary;
+
+  .card-body {
+    background-color: white;
+  }
+}
+
+a.btn-secondary,
+button.btn-primary,
+button.btn-secondary {
+  margin: 10px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.main-body-container {
+  width: 1320px;
+  margin: 0 auto;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
